@@ -34,16 +34,16 @@ float speed = 5;
 void setup () {
   size(640, 480);
   
-  gameStartImg1 = loadImage("img/start1.png");
-  gameStartImg2 = loadImage("img/start2.png");
+  gameStartImg1 = loadImage("img/start2.png");
+  gameStartImg2 = loadImage("img/start1.png");
   backgroundImg1 = loadImage("img/bg1.png");
   backgroundImg2 = loadImage("img/bg2.png");
   enemyImg = loadImage("img/enemy.png");
   fighterImg = loadImage("img/fighter.png");
   hpImg = loadImage("img/hp.png");
   treasureImg = loadImage("img/treasure.png");
-  endImg1 = loadImage("img/end1.png");
-  endImg2 = loadImage("img/end2.png");
+  endImg1 = loadImage("img/end2.png");
+  endImg2 = loadImage("img/end1.png");
 
 
   bg2X = 640;
