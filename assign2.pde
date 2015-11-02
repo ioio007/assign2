@@ -48,7 +48,7 @@ void setup () {
 
   bg2X = 640;
   bg1X = 0;
-  rectX = 215;
+  rectX = 55;
   treasureX = random(600);
   treasureY = random(440);
   enemyX = 0;
@@ -116,7 +116,7 @@ void draw() {
         }
       }
         
-      if(fighterX >= enemyX-45 && fighterX < enemy+60 && fighterY >= enemyY-45 && fighterY <= enemyY+60){
+      if(fighterX >= enemyX-45 && fighterX < enemyX+60 && fighterY >= enemyY-45 && fighterY <= enemyY+60){
         
         enemyX = 0;
         enemyY = random(40,420);
