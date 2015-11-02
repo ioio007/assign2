@@ -82,13 +82,7 @@ void draw() {
       bg2X = bg2X % 1280;                                                                    
       bg1X = bg1X + 1;
       bg1X = bg1X % 1280;
-        
       
-      if(enemyX == 0){
-        enemyY = random(40,420);
-        //enemyY = fighterY;
-        
-      }
       image(treasureImg,treasureX,treasureY);
       image(fighterImg,fighterX,fighterY);
       image(enemyImg,enemyX,enemyY);
@@ -122,31 +116,40 @@ void draw() {
         }
       }
         
-      if( (enemyX+60 > fighterX && fighterX > enemyX)||(fighterX+50 > enemyX && fighterX+50 < enemyX+60)){
-        if((fighterY > enemyY && fighterY < enemyY+60)||(fighterY+50 > enemyY && fighterY+50 < enemyY+60)){
-          enemyX = 0;
-          enemyY = random(40,420);
-          rectX = rectX - 40;
-          if(rectX < 15){
-            rectX = 15;
-          }
-          //rect(15,10,rectX,40);
-          if(rectX <= 15){
-            gameState = GAME_OVER;
-          }
+      if(fighterX >= enemyX-45 && fighterX < enemy+60 && fighterY >= enemyY-45 && fighterY <= enemyY+60){
+        
+        enemyX = 0;
+        enemyY = random(40,420);
+        rectX = rectX - 40;
+        if(rectX < 15){
+          rectX = 15;
         }
+        //rect(15,10,rectX,40);
+        if(rectX <= 15){
+          gameState = GAME_OVER;
+        }
+        
       }
-      else if((treasureX < fighterX && treasureX+40 > fighterX)||(fighterX+50 > treasureX && fighterX+50 < treasureX+40)){
-        if((fighterY > treasureY && fighterY < treasureY+40) ||(fighterY+50 > treasureY && fighterY+50 < treasureY+40)){
-          treasureX = random(600);
-          treasureY = random(440);
-          //image(treasureImg,treasureX,treasureY);
-          rectX = rectX + 20;
-          if(rectX >= 215){
-            rectX = 215;
-          }
-          //rect(15,10,rectX,40);
+      if(fighterX >= treasureX-45 && fighterX < treasureX+40 && fighterY >= treasureY-45 && fighterY <= treasureY+40){
+        
+        treasureX = random(600);
+        treasureY = random(440);
+        //image(treasureImg,treasureX,treasureY);
+        rectX = rectX + 20;
+        if(rectX >= 215){
+          rectX = 215;
         }
+        //rect(15,10,rectX,40);
+      }
+      
+      if(enemyY > fighterY){
+        enemyY-=2;
+      }
+      if(enemyY == fighterY){
+        enemyX+=3;
+      }
+      if(enemyY < fighterY){
+        enemyY+=2;
       }
       break;
     case GAME_OVER:
